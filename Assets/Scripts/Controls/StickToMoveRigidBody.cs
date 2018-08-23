@@ -4,8 +4,11 @@ using UnityEngine;
 
 namespace Controls
 {
-
-    public class StickToMove : StickBase
+    /// <summary>
+    /// Simple implementation of player movement with joystick/keys control.
+    /// </summary>
+    [RequireComponent(typeof(Rigidbody))]
+    public class StickToMoveRigidBody : StickBase
     {
 
         public float moveSpeed = 7f;
@@ -16,27 +19,23 @@ namespace Controls
         float smoothInputMagnitude;
         float smoothMoveVelocity;
         Vector3 inputDirection;
+        Rigidbody rb;
 
-        void FixedUpdate()
+        private void Start()
         {
-            GetInput();
-            Move();
+            rb = GetComponent<Rigidbody>();
         }
 
-        public override void GetInput()
+        public override void Move()
         {
-            inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
+            inputDirection = new Vector3(inputH, 0f, inputV).normalized;
             smoothInputMagnitude = Mathf.SmoothDamp(smoothInputMagnitude, inputDirection.magnitude, ref smoothMoveVelocity, smoothMoveTime);
 
             float targetAngle = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg;
             angle = Mathf.LerpAngle(angle, targetAngle, Time.deltaTime * turnSpeed * inputDirection.magnitude);
 
             velocity = transform.forward * moveSpeed * smoothInputMagnitude;
-        }
 
-
-        public override void Move()
-        {
             rb.MoveRotation(Quaternion.Euler(Vector3.up * angle));
             rb.MovePosition(rb.position + velocity * Time.deltaTime);
         }

@@ -4,16 +4,24 @@ using UnityEngine;
 
 namespace Controls
 {
-
-    [RequireComponent(typeof(Rigidbody))]
+    /// <summary>
+    /// Base class for simple movement using joystick/keys
+    /// </summary>
     public class StickBase : MoveBase
     {
-        public Rigidbody rb;
+        [HideInInspector]
+        public float inputH, inputV;
         public Vector3 velocity;
 
-        void Start()
+        public override void GetInput()
         {
-            rb = GetComponent<Rigidbody>();
+            inputH = Input.GetAxisRaw("Horizontal");
+            inputV = Input.GetAxisRaw("Vertical");
+        }
+
+        public override void Move()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

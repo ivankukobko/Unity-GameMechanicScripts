@@ -2,15 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StickToStep : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+namespace Controls
+{
+    /// <summary>
+    /// Simple player movement/jump on a grid, like in puzzles and turn-based games
+    /// </summary>
+    public class StickToStep : StickBase
+    {
+    }
 }

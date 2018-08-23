@@ -5,26 +5,27 @@ using UnityEngine.AI;
 
 namespace Controls
 {
-    public class ClickToMove : MoveBase
+    /// <summary>
+    /// Base class for click/tap to move player controls.
+    /// </summary>
+    public class ClickBase : MoveBase
     {
         public LayerMask moveableMask;
         public float raycastDistance = 1000f;
 
-        new Camera camera;
-        NavMeshAgent agent;
-        Vector3 targetPoint;
+        protected Vector3 targetPoint;
+        protected new Camera camera;
 
-        void Start()
+        protected virtual void Start()
         {
             camera = Camera.main;
-            agent = GetComponent<NavMeshAgent>();
         }
 
 
-        public override void GetInput () {
+        public override void GetInput()
+        {
             if (Input.GetMouseButtonDown(0))
             {
-
                 Ray ray = camera.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
 
@@ -37,7 +38,7 @@ namespace Controls
 
         public override void Move()
         {
-            agent.SetDestination(targetPoint);
+            throw new System.NotImplementedException();
         }
     }
 }
