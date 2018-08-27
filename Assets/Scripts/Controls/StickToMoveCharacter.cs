@@ -14,6 +14,7 @@ namespace Controls
         public float moveSpeed = 7f;
         public float smoothMoveTime = .1f;
         public float turnSpeed = 8f;
+        public float mass = 50f;
 
         float angle;
         float smoothInputMagnitude;
@@ -32,13 +33,13 @@ namespace Controls
             smoothInputMagnitude = Mathf.SmoothDamp(smoothInputMagnitude, inputDirection.magnitude, ref smoothMoveVelocity, smoothMoveTime);
 
             velocity = inputDirection * moveSpeed * smoothInputMagnitude;
-            velocity.y += Physics.gravity.y * Time.deltaTime;
+            velocity.y += Physics.gravity.y * Time.deltaTime * mass;
 
             if (inputDirection.magnitude > 0f)
             {
                 transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(inputDirection), turnSpeed * Time.deltaTime);
-                controller.Move(velocity * Time.deltaTime);
             }
+            controller.Move(velocity * Time.deltaTime);
         }
     }
 }
