@@ -126,17 +126,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 38800607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df6b30ef52c3f46e1802caddb6991dc8, type: 3}
+  m_Script: {fileID: 11500000, guid: 776c73c37446c4571a6130480f31bb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   inputH: 0
   inputV: 0
   velocity: {x: 0, y: 0, z: 0}
-  moveSpeed: 7
-  smoothMoveTime: 0.1
-  turnSpeed: 8
-  mass: 50
---- !u!143 &38800614
+  stepSize: 2
+  moveSpeed: 0.1
+  snapToGrid: 1
+--- !u!143 &38800613
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -268,25 +267,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60, y: -30, z: 0}
---- !u!1 &1538373949 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1762633580095296, guid: 0d1ab734d0dfe43bea082231dc861810,
-    type: 2}
-  m_PrefabInternal: {fileID: 1703142458}
---- !u!64 &1538373950
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1538373949}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1703142458
 Prefab:
   m_ObjectHideFlags: 0
@@ -326,9 +306,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 136197091234983638, guid: 0d1ab734d0dfe43bea082231dc861810, type: 2}
-    - {fileID: 136609744784910036, guid: 0d1ab734d0dfe43bea082231dc861810, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d1ab734d0dfe43bea082231dc861810, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &1711481985
@@ -431,22 +409,3 @@ MonoBehaviour:
   target: {fileID: 38800607}
   offset: {x: 0, y: -10, z: 16}
   pitch: 2
---- !u!1 &1898499154 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1393307951762384, guid: 0d1ab734d0dfe43bea082231dc861810,
-    type: 2}
-  m_PrefabInternal: {fileID: 1703142458}
---- !u!64 &1898499155
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1898499154}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
