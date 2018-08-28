@@ -9,6 +9,7 @@ namespace Controls
     /// Simple click to move with NavMeshAgent. 
     /// Don't forget to generate NavMesh
     /// </summary>
+    [RequireComponent(typeof(NavMeshAgent))]
     public class ClickToMoveAgent : ClickBase
     {
         NavMeshAgent agent;

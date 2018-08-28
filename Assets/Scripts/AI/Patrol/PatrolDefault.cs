@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace AI.Patrol
 {
-
     public class PatrolDefault : PatrolBase
     {
         public bool ignoreWaypointY = true;
