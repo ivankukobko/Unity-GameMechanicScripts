@@ -30,12 +30,10 @@ namespace AI.Patrol
 
                 if (Vector3.Distance(transform.position, targetWaypoint) < Mathf.Max(agent.stoppingDistance, 2f))
                 {
-                    Debug.Log("Reached");
                     yield return new WaitForSeconds(waitTime);
                     targetWaypoint = GenerateNextPoint();
                 }
 
-                Debug.Log(Vector3.Distance(transform.position, targetWaypoint) + " / " + agent.isStopped);
                 yield return null;
             }
         }
